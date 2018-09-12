@@ -43,8 +43,9 @@ group :development, :test do
   gem 'rubocop', '~> 0.58.0', require: false
   gem 'meowcop', require: false
 
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
