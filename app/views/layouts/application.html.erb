@@ -1,30 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Task Devider</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" crossorigin="anonymous">
+
   </head>
 
   <body>
-    <header>
-        <nav>
-            <% if user_signed_in? %>
-                <strong><%= link_to current_user.name, pages_show_path %></strong>
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-                <%= link_to 'サインアップ', new_user_registration_path %>
-                <%= link_to 'ログイン', new_user_session_path %>
-            <% end %>
-        </nav>
-    </header>
+    <nav class="navbar is-transparent">
+      <!-- <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div> -->
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <% if user_signed_in? %>
+              <strong><%= link_to current_user.name, pages_show_path %></strong>さん
+              <%= link_to 'プロフィール', edit_user_registration_path, class: "fa fa-user" %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+          <% else %>
+              <%= link_to 'サインアップ', new_user_registration_path %>
+              <%= link_to 'ログイン', new_user_session_path %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            taskill
+          </h1>
+          <h2 class="subtitle">
+            「ふわっとしたタスク」を「かちっとしたアクション」へ
+          </h2>
+        </div>
+      </div>
+    </section>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <a href="https://twitter.com/kenkenk05647497">
+            © 2018 Kencihi Ukai
+          </a>
+        </p>
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Taskill | 「ふわっとしたタスク」を「かちっとしたアクション」へ" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </footer>
   </body>
 </html>
