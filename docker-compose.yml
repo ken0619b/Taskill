@@ -12,11 +12,12 @@ services:
     tty: true
     stdin_open: true
   mysql:
-    image: mysql:5.7
+    build: ./mysql
     volumes:
       - mysql_volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: mysql
+      TZ: "Asia/Tokyo"
   spring:
     <<: *web_base
     command: bundle exec spring server

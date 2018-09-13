@@ -76,3 +76,5 @@ gem "ransack"
 gem "rails-i18n", "~> 5.1"
 
 gem "devise"
+
+gem "enumerize"
