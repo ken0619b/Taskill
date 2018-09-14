@@ -1,14 +1,24 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
+    @tasks = Task.all
   end
 
+  def new; end
+
   def show
+    @task = Task.find_by(id: params[:id])
+    @plans = @task.plans
+  end
+
+  def create
   end
 
   def edit
   end
 
-  def create
+  def update
   end
+
+  def destroy; end
 end

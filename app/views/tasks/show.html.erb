@@ -1,2 +1,54 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<!-- tasks#show  -->
+<section class="section">
+  <div class="container">
+    <h3 class="title is-3">ふわっと仕事：<%= @task.title %></h3>
+    <h2 class="subtitle">
+      概要：<%= @task.content %>
+    </h2>
+  </div>
+</section>
+
+<div class="container">
+  <h3 class="title is-3">タスク案</h3>
+    <% if @plans.count > 0 %>
+      <div class="tile is-ancestor">
+        <% @plans.each_with_index do |plan, index| %>
+          <% if (index + 1) % 3 == 0 %>
+          <!-- each Tasks  -->
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title is-4"><%= plan.user.name %>さんのタスク案</p>
+              <p class="subtitle is-5"><%= plan.comment %></p>
+              <!-- list of Actions  -->
+              <% if plan.actions.count > 0 %>
+                <ol class="notification">
+                  <% plan.actions.each do |action| %>
+                      <li><%= action.content %></li>
+                  <% end %>
+                </ol>
+              <% end %>
+            </article>
+          </div>
+        </div>
+        <div class="tile is-ancestor">
+          <% else %>
+            <!-- each Tasks  -->
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title is-4"><%= plan.user.name %>さんのタスク案</p>
+                <p class="subtitle is-5"><%= plan.comment %></p>
+                <!-- list of Actions  -->
+                <% if plan.actions.count > 0 %>
+                  <ol class="notification">
+                    <% plan.actions.each do |action| %>
+                        <li><%= action.content %></li>
+                    <% end %>
+                  </ol>
+                <% end %>
+              </article>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  <% end %>
+</div>
