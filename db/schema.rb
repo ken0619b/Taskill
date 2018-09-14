@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_063252) do
+ActiveRecord::Schema.define(version: 2018_09_14_033452) do
 
   create_table "actions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "task_id"
-    t.bigint "user_id"
     t.string "content"
     t.string "is_done"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_actions_on_task_id"
-    t.index ["user_id"], name: "index_actions_on_user_id"
+    t.bigint "plan_id"
+    t.index ["plan_id"], name: "index_actions_on_plan_id"
+  end
+
+  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "comment"
+    t.bigint "task_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_plans_on_task_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
