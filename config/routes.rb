@@ -1,15 +1,8 @@
 Rails.application.routes.draw do
 
-  # Users-Tasks # view側で制御する
-  # resources :users, shallow: true do
-  #   member do
-  #     resources :tasks
-  #   end
-  # end
-
   # Tasks - Plans
   resources :tasks, shallow: false do
-    resources :plans
+    resources :plans, except: [:index]
   end
 
   # Users

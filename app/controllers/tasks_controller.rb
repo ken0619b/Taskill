@@ -8,6 +8,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find_by(id: params[:id])
+    @plans = @task.plans
   end
 
   def create
