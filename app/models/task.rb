@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
-  has_many :actions
+  has_many :plans
   belongs_to :user
 end
