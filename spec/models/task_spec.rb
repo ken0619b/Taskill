@@ -1,5 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Task, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Relations' do
+    it 'has many plans' do
+      is_expected.to have_many(:plans)
+    end
+  end
 end
