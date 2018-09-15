@@ -44,8 +44,7 @@ group :development, :test do
   gem "rubocop", "~> 0.58.0", require: false
 
   gem "factory_bot_rails"
-  gem "rails-controller-testing"
-  gem "rspec-rails", "~> 3.8"
+
 end
 
 group :development do
@@ -57,15 +56,25 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
 
   gem "pry-doc"    # methodを表示
-  gem "pry-rails"  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem "pry-rails"
 
   gem "letter_opener", group: :development
 
-  # エラー画面をわかりやすく整形してくれる
+  # better_errors
   gem "better_errors"
-
-  # better_errorsの画面上にirb/pry(PERL)を表示する
   gem "binding_of_caller"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 3.1", require: false
+  gem "rails-controller-testing" # If you are using Rails 5.x
+  gem "rspec-rails", "~> 3.8"
+
+  # minitest
+  gem "minitest"
+  gem "minitest-rails"
+  gem "minitest-stub_any_instance" # メソッドmockを追加できる様にする
+  gem "minitest-bang" # let!文のサポートを追加
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
