@@ -10,6 +10,9 @@
               <p class="title"><%= task.title %></p>
               <p class="subtitle"><%= task.content %></p>
               <%= link_to "#{task.plans.count}件のタスク案を見る", task_path(task.id), class: "button is-medium is-fullwidth is-primary is-outlined"%>
+              <div class="is-divider"></div>
+              <%= link_to "編集する", edit_task_path(task.id), class: "button is-medium is-fullwidth is-info is-outlined"%>
+              <%= link_to "削除する", task_path(task.id), method: :delete, class: "button is-medium is-fullwidth is-danger is-outlined"%>
             </article>
           </div>
           </div><div class="tile is-ancestor">
@@ -19,10 +22,24 @@
                 <p class="title"><%= task.title %></p>
                 <p class="subtitle"><%= task.content %></p>
                 <%= link_to "#{task.plans.count}件のタスク案を見る", task_path(task.id), class: "button is-medium is-fullwidth is-primary is-outlined"%>
+                <div class="is-divider"></div>
+                <%= link_to "編集する", edit_task_path(task.id), class: "button is-medium is-fullwidth is-info is-outlined"%>
+                <%= link_to "削除する", task_path(task.id), method: :delete, class: "button is-medium is-fullwidth is-danger is-outlined"%>
               </article>
             </div>
           <% end %>
         <% end %>
       </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+  <div class="is-divider"></div>
+    <section class="section">
+      <div class="columns is-mobile">
+        <div class="column is-half is-offset-one-quarter">
+          <%= link_to "新しい「ふわっとした仕事」を追加する", new_task_path, class: "button button is-medium is-fullwidth is-success is-outlined"%>
+        </div>
+      </div>
+    </section>
   <% end %>
 </div>

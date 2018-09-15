@@ -78,3 +78,7 @@ gem "rails-i18n", "~> 5.1"
 gem "devise"
 
 gem "enumerize"
+
+# css
+gem "bulma-rails", "~> 0.7.1"
+gem "bulma-extensions-rails"
