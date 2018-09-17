@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TasKill - タスキル -
+「ふわっとした仕事」を「具体的なタスク」へ
+個人で制作中のサービス
 
-Things you may want to cover:
+### 環境構築
+```
+git clone git@github.com:ken840619/Taskill.git
+docker-compose build
+docker-compose up
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 環境へのアクセス
+railsコマンド
+```
+docker ps # コンテナのIDを調べる
+docker exec -it [springのcontainer ID]
+```
