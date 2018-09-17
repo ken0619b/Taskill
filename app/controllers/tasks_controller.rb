@@ -35,31 +35,28 @@ class TasksController < ApplicationController
   def update
     @task = get_task
 
-    @task.update_attributes(task_params)
-
-    if @task.save
+    if @task.update_attributes(task_params)
       flash[:success] = "仕事を更新しました。"
       redirect_to tasks_path
     else
       render "edit"
     end
-
   end
 
   def destroy
     @task = get_task
-    @task.destroy
+    @task.destroy!
 
     redirect_to tasks_path
   end
 
   private
 
-  def task_params
-    params.require(:task).permit(:title, :content, :end_date)
-  end
+    def task_params
+      params.require(:task).permit(:title, :content, :end_date)
+    end
 
-  def get_task
-    Task.find_by(id: params[:id])
-  end
+    def get_task
+      Task.find_by(id: params[:id])
+    end
 end

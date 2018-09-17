@@ -42,9 +42,6 @@ group :development, :test do
 
   gem "onkcop", require: true
   gem "rubocop", "~> 0.58.0", require: false
-
-  gem "factory_bot_rails"
-
 end
 
 group :development do
@@ -55,7 +52,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
 
-  gem "pry-doc"    # methodを表示
+  gem "pry-doc" # methodを表示
   gem "pry-rails"
 
   gem "letter_opener", group: :development
@@ -66,15 +63,19 @@ group :development do
 end
 
 group :test do
-  gem "shoulda-matchers", "~> 3.1", require: false
   gem "rails-controller-testing" # If you are using Rails 5.x
   gem "rspec-rails", "~> 3.8"
+  gem "shoulda-matchers", "~> 3.1", require: false
 
   # minitest
   gem "minitest"
+  gem "minitest-bang" # let!文のサポートを追加
   gem "minitest-rails"
   gem "minitest-stub_any_instance" # メソッドmockを追加できる様にする
-  gem "minitest-bang" # let!文のサポートを追加
+
+  # factory-bot, faker
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -89,5 +90,5 @@ gem "devise"
 gem "enumerize"
 
 # css
-gem "bulma-rails", "~> 0.7.1"
 gem "bulma-extensions-rails"
+gem "bulma-rails", "~> 0.7.1"
